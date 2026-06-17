@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF7F2;
+        }
+        .confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ee",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dcdad5",
+                    "secondary-fixed": "#fdddb9",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f3f0eb",
+                    "primary-container": "#2d5f3f",
+                    "primary-fixed": "#b8efc6",
+                    "inverse-surface": "#31302d",
+                    "tertiary-container": "#a02910",
+                    "on-primary-fixed": "#00210e",
+                    "on-tertiary-fixed": "#3d0600",
+                    "on-secondary-container": "#786044",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "surface": "#fcf9f4",
+                    "tertiary-fixed": "#ffdad3",
+                    "secondary-fixed-dim": "#e0c29f",
+                    "secondary": "#715a3e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf9f4",
+                    "on-secondary-fixed": "#281803",
+                    "surface-tint": "#366848",
+                    "surface-variant": "#e5e2dd",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "on-tertiary-fixed-variant": "#8b1a02",
+                    "outline-variant": "#c0c9bf",
+                    "secondary-container": "#fdddb9",
+                    "on-secondary-fixed-variant": "#584329",
+                    "primary-fixed-dim": "#9dd3ab",
+                    "background": "#fcf9f4",
+                    "tertiary": "#7c1400",
+                    "on-tertiary-container": "#ffbaaa",
+                    "inverse-primary": "#9dd3ab",
+                    "surface-container-high": "#ebe8e3",
+                    "primary": "#134729",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2dd",
+                    "surface-container": "#f0ede9",
+                    "on-primary-container": "#a1d7ae",
+                    "outline": "#717971",
+                    "on-primary-fixed-variant": "#1d5031",
+                    "on-background": "#1c1c19",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "on-surface-variant": "#414942"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit-2": "0.5rem",
+                    "unit-4": "1rem",
+                    "unit-6": "1.5rem",
+                    "unit-12": "3rem",
+                    "base": "4px",
+                    "unit-8": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "gutter": "1rem",
+                    "unit-1": "0.25rem"
+            },
+            "fontFamily": {
+                    "scientific-name": ["Source Serif 4"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "scientific-name": ["18px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col overflow-hidden">
+<!-- Mock Content Background (Dimmed underlay) -->
+<main class="flex-grow blur-sm opacity-50 p-margin-mobile">
+<header class="flex justify-between items-center py-unit-4">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Chirp</h1>
+<div class="w-10 h-10 rounded-full bg-surface-container-high"></div>
+</header>
+<div class="grid grid-cols-2 gap-unit-4">
+<div class="aspect-square bg-surface-container rounded-xl"></div>
+<div class="aspect-square bg-surface-container rounded-xl"></div>
+<div class="aspect-square bg-surface-container rounded-xl"></div>
+<div class="aspect-square bg-surface-container rounded-xl"></div>
+</div>
+</main>
+<!-- Success Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-margin-mobile bg-black/40 backdrop-blur-md">
+<!-- Particle Animation Canvas -->
+<canvas class="confetti-canvas" id="particleCanvas"></canvas>
+<!-- Modal Card -->
+<div class="relative bg-surface w-full max-w-md rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] transform animate-in fade-in zoom-in duration-300">
+<!-- Atmospheric Shader Background (Subtle Forest Glimmer) -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+
+</div>
+<div class="relative px-unit-6 pt-unit-12 pb-unit-8 flex flex-col items-center text-center">
+<!-- Bird Avatar with Forest Green Border -->
+<div class="relative mb-unit-6">
+<div class="absolute inset-0 rounded-full border-4 border-primary/20 scale-110 animate-ping duration-1000"></div>
+<div class="w-40 h-40 rounded-full border-4 border-primary overflow-hidden shadow-lg bg-surface-container-low">
+<img alt="흰뺨검둥오리" class="w-full h-full object-cover" data-alt="A high-resolution, detailed portrait of a Spot-billed duck (Anas poecilorhyncha) floating gracefully on a calm lake. The water reflects the warm, golden light of late afternoon, creating a serene and scholarly atmosphere. The duck's distinctive bill and feather patterns are sharp and clear, presented in the style of a premium nature field guide with soft-focus greenery in the background. The aesthetic is clean, warm, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDft5T36SW00zANeVtEhgIg3MPXMdftC4nmj1s6Fdu6l-0Pn8rktFjtWaclbUjR3pj_1gdXifgJY2HEBMh10FXJSPWEoVBTF0z7kkKlhlEGxAPYsf3enpqtX6-DoYiriAGVaSAnGsBstq6-C9LXg3ctzLwByxM5V48O48dSCYtMoea2kWjk0aHM7qbs5f10SOwCcoJKhNTAsW0Z_Ch4cQN4OgnSBxUJ2hTz6hIAszQIMOToBqB4Q3R2z7E91UAl02lW7XN0wiqdN3EL"/>
+</div>
+<!-- Icon badge -->
+<div class="absolute -bottom-2 -right-2 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Titles -->
+<div class="space-y-unit-1 mb-unit-6">
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">새로운 새를 발견했어요!</p>
+<p class="font-scientific-name text-scientific-name text-on-surface-variant italic">Anas poecilorhyncha</p>
+<h2 class="text-3xl font-bold text-on-surface">흰뺨검둥오리</h2>
+</div>
+<!-- Subtext & Progress -->
+<div class="w-full bg-surface-container-low rounded-2xl p-unit-4 mb-unit-8">
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-unit-2">도감 23번째 새가 추가됐어요</p>
+<div class="flex items-center gap-unit-4">
+<div class="flex-grow h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[4.6%] rounded-full transition-all duration-1000 ease-out" id="progressBar"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">23 / 500종</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-unit-2">
+<button class="w-full py-unit-4 bg-primary text-white font-bold rounded-2xl shadow-sm active:scale-95 transition-transform">
+                        도감에서 보기
+                    </button>
+<button class="w-full py-unit-4 bg-transparent text-on-surface-variant font-semibold rounded-2xl border-2 border-outline-variant hover:bg-surface-container transition-colors active:scale-95">
+                        계속 탐조하기
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Progress Bar Animation
+        setTimeout(() => {
+            document.getElementById('progressBar').style.width = '4.6%';
+        }, 500);
+
+        // Feather/Particle Animation
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20;
+                this.size = Math.random() * 8 + 4;
+                this.speed = Math.random() * 2 + 1;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = (Math.random() - 0.5) * 2;
+                this.color = Math.random() > 0.5 ? '#134729' : '#b8efc6'; // Primary or Primary-fixed
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.horizontalDrift = (Math.random() - 0.5) * 1.5;
+            }
+
+            update() {
+                this.y += this.speed;
+                this.x += this.horizontalDrift;
+                this.rotation += this.rotationSpeed;
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                
+                // Draw a simple feather/leaf shape
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(this.size, this.size / 2, this.size, this.size * 1.5, 0, this.size * 2);
+                ctx.bezierCurveTo(-this.size, this.size * 1.5, -this.size, this.size / 2, 0, 0);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function init() {
+            resize();
+            for (let i = 0; i < 40; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        init();
+        animate();
+
+        // Interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Simple exit transition
+                btn.closest('.fixed').classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    btn.closest('.fixed').style.display = 'none';
+                    document.querySelector('main').classList.remove('blur-sm', 'opacity-50');
+                }, 300);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-overlay {
+            backdrop-filter: blur(8px);
+            background: rgba(252, 249, 244, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f6f3ee",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dcdad5",
+                      "secondary-fixed": "#fdddb9",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f3f0eb",
+                      "primary-container": "#2d5f3f",
+                      "primary-fixed": "#b8efc6",
+                      "inverse-surface": "#31302d",
+                      "tertiary-container": "#a02910",
+                      "on-primary-fixed": "#00210e",
+                      "on-tertiary-fixed": "#3d0600",
+                      "on-secondary-container": "#786044",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "surface": "#fcf9f4",
+                      "tertiary-fixed": "#ffdad3",
+                      "secondary-fixed-dim": "#e0c29f",
+                      "secondary": "#715a3e",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fcf9f4",
+                      "on-secondary-fixed": "#281803",
+                      "surface-tint": "#366848",
+                      "surface-variant": "#e5e2dd",
+                      "tertiary-fixed-dim": "#ffb4a4",
+                      "on-tertiary-fixed-variant": "#8b1a02",
+                      "outline-variant": "#c0c9bf",
+                      "secondary-container": "#fdddb9",
+                      "on-secondary-fixed-variant": "#584329",
+                      "primary-fixed-dim": "#9dd3ab",
+                      "background": "#fcf9f4",
+                      "tertiary": "#7c1400",
+                      "on-tertiary-container": "#ffbaaa",
+                      "inverse-primary": "#9dd3ab",
+                      "surface-container-high": "#ebe8e3",
+                      "primary": "#134729",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e5e2dd",
+                      "surface-container": "#f0ede9",
+                      "on-primary-container": "#a1d7ae",
+                      "outline": "#717971",
+                      "on-primary-fixed-variant": "#1d5031",
+                      "on-background": "#1c1c19",
+                      "on-error": "#ffffff",
+                      "on-surface": "#1c1c19",
+                      "on-surface-variant": "#414942"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-2": "0.5rem",
+                      "unit-4": "1rem",
+                      "unit-6": "1.5rem",
+                      "unit-12": "3rem",
+                      "base": "4px",
+                      "unit-8": "2rem",
+                      "margin-desktop": "2.5rem",
+                      "margin-mobile": "1rem",
+                      "gutter": "1rem",
+                      "unit-1": "0.25rem"
+              },
+              "fontFamily": {
+                      "scientific-name": ["\"Source Serif 4\""],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "scientific-name": ["18px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-fixed-dim pb-32">
+<!-- Top AppBar (from JSON) -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim flex justify-between items-center px-margin-mobile py-unit-4 w-full">
+<div class="flex items-center gap-unit-4">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden flex items-center justify-center">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a young birder with a warm smile, wearing a canvas outdoor vest. The lighting is soft and natural, reflecting a bright day-light mode aesthetic. The background is a clean, neutral studio setting that matches the warm minimalism of the birding application's color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFTuVtDkQxfNVd7pcN8xDWPGQ2uCV4BhC4NMqCVsr_geIHBCJxq1wOC37cqYBe2TMIpyV1m8RkLiFJtiIkDWji3F4Xh3bJLFlgZFOSnEVBXqdJta9FHnoXK6pmm8p3CZI0_I3xAdaMr7scLyZ5w8qh8JKNfEhSR_mvvDK2k2BWtiEFYSf_3LZwh-IR5U__l3n4UjOGK-bLclugWiK3WgRZMC8bJIUsWaa8_ksX8Ccyfjc6x9TVZogP4mOkQNk8n_hWYIBIrFiJZ1Y5"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed">내 도감</h1>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150 text-on-surface-variant dark:text-outline p-unit-2">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<main class="px-margin-mobile max-w-screen-md mx-auto">
+<!-- Progress Section -->
+<section class="mt-unit-6 p-unit-6 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] border border-surface-container">
+<div class="flex justify-between items-end mb-unit-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">발견한 조류</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-unit-1">23 / 500종 발견</h2>
+</div>
+<div class="text-primary font-bold text-headline-lg-mobile">
+                    4.6%
+                </div>
+</div>
+<!-- Custom Progress Bar -->
+<div class="w-full h-[4px] bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[4.6%] transition-all duration-1000 ease-out"></div>
+</div>
+</section>
+<!-- Filter Chips -->
+<nav class="mt-unit-8 flex gap-unit-2 overflow-x-auto no-scrollbar py-unit-2 -mx-margin-mobile px-margin-mobile">
+<button class="px-unit-4 py-unit-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm whitespace-nowrap shadow-sm">전체</button>
+<button class="px-unit-4 py-unit-2 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">텃새</button>
+<button class="px-unit-4 py-unit-2 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">철새</button>
+<button class="px-unit-4 py-unit-2 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">희귀종</button>
+<button class="px-unit-4 py-unit-2 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">멸종위기</button>
+</nav>
+<!-- Collection Grid -->
+<div class="grid grid-cols-2 gap-gutter mt-unit-6">
+<!-- Bird Card 1: Found -->
+<article class="bg-surface-container-lowest p-unit-4 rounded-xl shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow cursor-pointer group">
+<div class="aspect-square w-full rounded-lg overflow-hidden bg-surface-container mb-unit-4">
+<img alt="Kingfisher" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vivid close-up photograph of a common Kingfisher perched on a mossy branch over still water. The bird's feathers are a brilliant azure blue and deep orange, captured with sharp focus and shallow depth of field. The lighting is soft morning sunlight, emphasizing the organic textures of the bird and the natural forest setting in a warm, minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgwVt_W9QRL_6Wh3tFPKz1ZZWh2zIM6nF5LdxBJMc-LF0jHlwaoG3Fup_SCPJqUWoiWOFznlxF2iU5qVBQ_gWjzS6GHZNhCsEfbfD5WZSRyEB-43b359nbegC9-iW-Dpb5q2PA8tYqWUxIkFv6rKcuLZ5ZzPkSh3CJbtjjNtqRoZlXrL_6fYuMIZDziQ_L8uU-UhG5hdiHFvORN60LoLDioC4o1lKhv9ZomsreZY0IRq3_NqrbP5edebhxwM_nsGe4TetsSSWJULh3"/>
+</div>
+<h3 class="font-bold text-on-background">물부리새</h3>
+<p class="font-scientific-name text-sm text-on-surface-variant italic opacity-80">Alcedo atthis</p>
+<div class="mt-unit-2 flex items-center gap-unit-1 text-[10px] text-outline font-label-sm">
+<span class="material-symbols-outlined !text-[12px]">calendar_today</span>
+                    2023.10.12 발견
+                </div>
+</article>
+<!-- Bird Card 2: Found -->
+<article class="bg-surface-container-lowest p-unit-4 rounded-xl shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow cursor-pointer group">
+<div class="aspect-square w-full rounded-lg overflow-hidden bg-surface-container mb-unit-4">
+<img alt="Great Tit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed portrait of a Great Tit bird with its distinctive yellow breast and black head, perched on a wintering pine branch. The scene is calm and scholarly, reminiscent of a high-end physical field guide. The background is a soft, out-of-focus winter forest, maintaining a bright and airy warm-white palette consistent with the application's minimalist brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPi24QcCp9ywgxIyGH6FWLFU7Ed8Y-q9LADW4-OR2E8wsdtVpmzfYDaxm_WONzlVCBKMNopefqZZh7Y6SE0NnR5946ehlqc3v5_dq2c53etNl0PrUNP3EQNBSMpgcUEmWHv5UI3o_zk2SoxG3ryxk8LouXDb7nQLtOcAg2D7d9yfQKmXWZwSW2DbaajL9q25HWbZsr0SfkG6Ag_jSLf6p5Hx_IDuO0qX1IOjNyW1HJq7qFRl8b7gSxZkvv1aL9o75cbKRdw2FCyNo5"/>
+</div>
+<h3 class="font-bold text-on-background">박새</h3>
+<p class="font-scientific-name text-sm text-on-surface-variant italic opacity-80">Parus major</p>
+<div class="mt-unit-2 flex items-center gap-unit-1 text-[10px] text-outline font-label-sm">
+<span class="material-symbols-outlined !text-[12px]">calendar_today</span>
+                    2023.11.05 발견
+                </div>
+</article>
+<!-- Bird Card 3: Unfound -->
+<article class="bg-surface-container-low p-unit-4 rounded-xl border border-dashed border-outline-variant opacity-60 flex flex-col items-center justify-center min-h-[220px]">
+<div class="aspect-square w-full rounded-lg bg-surface-dim flex items-center justify-center mb-unit-4 relative overflow-hidden">
+<!-- Silhouette SVG logic -->
+<div class="absolute inset-0 flex items-center justify-center bg-black/5">
+<span class="material-symbols-outlined text-outline text-6xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-4xl font-bold z-10">question_mark</span>
+</div>
+<h3 class="font-bold text-outline">미발견 조류</h3>
+<p class="font-scientific-name text-sm text-outline opacity-60">Unknown</p>
+<div class="mt-unit-2 flex items-center gap-unit-1 text-[10px] text-outline font-label-sm">
+                    미등록
+                </div>
+</article>
+<!-- Bird Card 4: Unfound -->
+<article class="bg-surface-container-low p-unit-4 rounded-xl border border-dashed border-outline-variant opacity-60 flex flex-col items-center justify-center min-h-[220px]">
+<div class="aspect-square w-full rounded-lg bg-surface-dim flex items-center justify-center mb-unit-4 relative overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center bg-black/5">
+<span class="material-symbols-outlined text-outline text-6xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-4xl font-bold z-10">question_mark</span>
+</div>
+<h3 class="font-bold text-outline">미발견 조류</h3>
+<p class="font-scientific-name text-sm text-outline opacity-60">Unknown</p>
+<div class="mt-unit-2 flex items-center gap-unit-1 text-[10px] text-outline font-label-sm">
+                    미등록
+                </div>
+</article>
+<!-- Bird Card 5: Found (Rare) -->
+<article class="bg-surface-container-lowest p-unit-4 rounded-xl shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] border-l-4 border-tertiary-container hover:shadow-md transition-shadow cursor-pointer group">
+<div class="aspect-square w-full rounded-lg overflow-hidden bg-surface-container mb-unit-4 relative">
+<div class="absolute top-2 left-2 bg-tertiary-container text-on-tertiary text-[10px] font-bold px-2 py-0.5 rounded-full z-10">희귀</div>
+<img alt="Rare Bird" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ethereal, high-detail photograph of a rare Owl species with golden eyes, camouflaged against ancient tree bark. The lighting is low-key with gentle highlights, creating a sense of archival preservation and scholarly appreciation. The aesthetic is warm and organic, perfectly suited for a premium field guide application's collection screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqRMjF5xcSrXMdUN8DJ8Loyb4Wxftq8ROMoMFZztYHhSOWF9G1A8cG-EdU2nLRDg_hwVMXAwgvjkKskgtzYKFgikTFiz38ZpV3GWOpyidMP8LO43zqTaofLHAVwTs_13wmClmgmm-fmpXXYC89OPg2u4jkVxyewEgFqFGLjkSbKY4-nnR-0ynjpFNMkcMcFy7FxeNNIFQdFq-eYo2oZFYvr3_lyuflnWQA-xbSi8e3YCBTqgPehsAirYsNq5dpJ_EtClPKVtTbfP7d"/>
+</div>
+<h3 class="font-bold text-on-background">수리부엉이</h3>
+<p class="font-scientific-name text-sm text-on-surface-variant italic opacity-80">Bubo bubo</p>
+<div class="mt-unit-2 flex items-center gap-unit-1 text-[10px] text-outline font-label-sm">
+<span class="material-symbols-outlined !text-[12px]">calendar_today</span>
+                    2023.12.24 발견
+                </div>
+</article>
+<!-- Bird Card 6: Found -->
+<article class="bg-surface-container-lowest p-unit-4 rounded-xl shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow cursor-pointer group">
+<div class="aspect-square w-full rounded-lg overflow-hidden bg-surface-container mb-unit-4">
+<img alt="Robin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A peaceful photograph of a small red-breasted robin perched on a rustic garden fence. The lighting is warm and golden-hour, casting soft shadows. The overall image has a clean, minimalist feel with a muted, natural color palette of browns, greens, and soft reds, aligning with the premium field guide visual identity of the Chirp application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTNGoEZkqokAKf1aX5-MnZMh-QYtZA2mpvJrwIXnGzQhjwFPnyiVNEWwFafbf02JlcC3hepXmmqnB4lAtnaEjvV0Ts08-43CNLY7oD1nmZ7XetSKuM4mpIQi0Qs6bSALUPxos_6JZOlbhWQQnbCfAT-Z9QkePHbZO_vq0h0IwbTgolLwDA_W7eyXjpxFxiFAPq7cfgU0Dva64ynBpRwpaHVYukk9Fr00HzFSJWFWotQaoEbrjL68D1z-Kznamfw7unFGSuaki3G9gi"/>
+</div>
+<h3 class="font-bold text-on-background">울새</h3>
+<p class="font-scientific-name text-sm text-on-surface-variant italic opacity-80">Erithacus rubecula</p>
+<div class="mt-unit-2 flex items-center gap-unit-1 text-[10px] text-outline font-label-sm">
+<span class="material-symbols-outlined !text-[12px]">calendar_today</span>
+                    2024.01.12 발견
+                </div>
+</article>
+</div>
+</main>
+<!-- Bottom Navigation Bar (from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-unit-2 pb-unit-4 pt-unit-2 bg-surface-container dark:bg-surface-container-highest shadow-[0_-4px_20px_0_rgba(0,0,0,0.04)] rounded-t-xl z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">My Guide</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm">Journal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</a>
+</nav>
+<!-- Add Floating Action Button for Discovery (Optional extra for UI quality) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add_a_photo</span>
+</button>
+<script>
+        // Micro-interaction for filter chips
+        const filterButtons = document.querySelectorAll('nav[class*="flex gap-unit-2"] button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                });
+                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                btn.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('article').forEach(article => {
+            article.style.opacity = '0';
+            article.style.transform = 'translateY(20px)';
+            article.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(article);
+        });
+    </script>
+</body></html>

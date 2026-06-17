@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chirp - Bird-watching Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Source+Serif+4:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ee",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dcdad5",
+                    "secondary-fixed": "#fdddb9",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f3f0eb",
+                    "primary-container": "#2d5f3f",
+                    "primary-fixed": "#b8efc6",
+                    "inverse-surface": "#31302d",
+                    "tertiary-container": "#a02910",
+                    "on-primary-fixed": "#00210e",
+                    "on-tertiary-fixed": "#3d0600",
+                    "on-secondary-container": "#786044",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "surface": "#fcf9f4",
+                    "tertiary-fixed": "#ffdad3",
+                    "secondary-fixed-dim": "#e0c29f",
+                    "secondary": "#715a3e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fcf9f4",
+                    "on-secondary-fixed": "#281803",
+                    "surface-tint": "#366848",
+                    "surface-variant": "#e5e2dd",
+                    "tertiary-fixed-dim": "#ffb4a4",
+                    "on-tertiary-fixed-variant": "#8b1a02",
+                    "outline-variant": "#c0c9bf",
+                    "secondary-container": "#fdddb9",
+                    "on-secondary-fixed-variant": "#584329",
+                    "primary-fixed-dim": "#9dd3ab",
+                    "background": "#fcf9f4",
+                    "tertiary": "#7c1400",
+                    "on-tertiary-container": "#ffbaaa",
+                    "inverse-primary": "#9dd3ab",
+                    "surface-container-high": "#ebe8e3",
+                    "primary": "#134729",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2dd",
+                    "surface-container": "#f0ede9",
+                    "on-primary-container": "#a1d7ae",
+                    "outline": "#717971",
+                    "on-primary-fixed-variant": "#1d5031",
+                    "on-background": "#1c1c19",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "on-surface-variant": "#414942"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit-2": "0.5rem",
+                    "unit-4": "1rem",
+                    "unit-6": "1.5rem",
+                    "unit-12": "3rem",
+                    "base": "4px",
+                    "unit-8": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "gutter": "1rem",
+                    "unit-1": "0.25rem"
+            },
+            "fontFamily": {
+                    "scientific-name": ["\"Source Serif 4\""],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "scientific-name": ["18px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FAF7F2; /* Design System Canvas Level 0 */
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-overlay {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .soft-card-shadow {
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface flex justify-between items-center px-margin-mobile py-unit-4">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Chirp</h1>
+<div class="flex items-center gap-unit-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-150">
+                settings
+            </button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden active:scale-95 duration-150 transition-transform">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up headshot of a person with a warm and friendly expression. The lighting is soft and natural, suggesting an outdoor environment. The overall aesthetic is clean and modern, matching a minimalist digital design system with a high-key light mode feel and soft focal depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOiitc1fYHRDnJbv84_gajNtErTg2p1EtQM26x12NlUy35JhNrkE3lyutnEJCR7FyS4O1DoLTemyxXZdK1Yf5tqzh1-Kg9fkk7ejPcpPW4PqAtHNz90Zema-a32rIZ5VMmu3svJNbGBbxnxSuB619ZFdGZoep1anIJKtS22SVQKigRHJI36tT30hjy4lstExN_e47Vc7r8nevbIXXbaVfRQ_4pglBi1WKAyLFlh0OWppcokuV3I7KSkdwtnwiM69gR9XmnFuL8JB7-"/>
+</div>
+</div>
+</header>
+<main class="px-margin-mobile pt-unit-8 pb-unit-12 max-w-screen-md mx-auto">
+<!-- Center Action: Identify Bird -->
+<section class="flex flex-col items-center justify-center py-unit-12 mb-unit-8">
+<div class="relative group">
+<!-- Decorative pulse effect -->
+<div class="absolute inset-0 bg-primary-container rounded-full animate-ping opacity-10 group-active:opacity-0"></div>
+<button class="relative w-48 h-48 bg-primary-container rounded-full flex flex-col items-center justify-center text-on-primary-container hover:opacity-90 active:scale-95 transition-all duration-300 shadow-xl">
+<span class="material-symbols-outlined text-[48px] mb-unit-2" style="font-variation-settings: 'FILL' 1;">
+                        nest_eco_leaf
+                    </span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-white">새 식별하기</span>
+<div class="absolute -bottom-2 -right-2 bg-surface p-2 rounded-full shadow-md">
+<span class="material-symbols-outlined text-primary text-body-md">photo_camera</span>
+</div>
+</button>
+</div>
+<p class="mt-unit-6 text-on-surface-variant font-body-md text-center max-w-[280px]">
+                카메라를 비추거나 사진을 업로드하여 눈앞의 새를 찾아보세요.
+            </p>
+</section>
+<!-- Summary Card: 오늘의 탐조 요약 -->
+<section class="mb-unit-12">
+<div class="bg-white rounded-xl p-unit-6 soft-card-shadow">
+<div class="flex justify-between items-center mb-unit-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">오늘의 탐조 요약</h2>
+<span class="text-primary font-label-sm flex items-center gap-1">
+                        더보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+<div class="mb-unit-4">
+<p class="text-body-md text-on-surface-variant">오늘 발견한 새 <span class="text-primary font-bold">2종</span></p>
+</div>
+<!-- Bird Photo Thumbnails -->
+<div class="grid grid-cols-2 gap-unit-4">
+<div class="group relative overflow-hidden rounded-xl bg-surface-container transition-transform hover:scale-[1.02] active:scale-[0.98] duration-200">
+<img alt="Bird 1" class="w-full h-32 object-cover" data-alt="A beautiful close-up of a vibrant blue kingfisher bird perched on a slender branch against a soft-focus forest background. The lighting is ethereal and natural, highlighting the detailed texture of its feathers. The image is crisp, modern, and high-quality, fitting a premium bird-watching field guide aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwXKXYK5CrcyuhTXqcvEOXwJ9u14GlP85uTf2zf_Q67i940Qzpa_B5ztO7dnK9pD9DfNxrLpCNGAx2VEaisR6zfz9ukuuveqNuEQ48ImfTxmnVXB5ahf-7_Z3Y6gLm7sT5GhF5OHYlLpuE5Yp4uOuojMUoqskqcyp3KL7EWGXI1zjxFt-byE6-ohbaghESP12LLD0rjoyir8ZPNjUfiYEgw2l2sqvo53pliIQTfAHPvgZTL7HN32FhOBS9NEIswqjJ9c8FL9NrJ9RZ"/>
+<div class="absolute bottom-0 left-0 w-full glass-overlay p-unit-2">
+<p class="font-label-sm text-on-surface text-center">물새</p>
+<p class="font-scientific-name text-[10px] text-on-surface-variant italic text-center">Alcedo atthis</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-surface-container transition-transform hover:scale-[1.02] active:scale-[0.98] duration-200">
+<img alt="Bird 2" class="w-full h-32 object-cover" data-alt="A detailed photograph of a small brown sparrow resting on a weathered wooden fence post in a quiet, sunlit garden. The atmosphere is peaceful and warm, with gentle sunlight creating soft highlights on the bird's plumage. The composition is minimalist and focused, adhering to a high-end scholarly field guide style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpK9UMguTEPA1X9qjXTs3XCJtattDH3RMGGUV2Xf1leiWyZMDJ5QgX0M9WON3gZa9ufAbZmfzRe2nhYO502h6LVal0SOMQP3DqlU2BO875vmzTg0oeZJ9w7u5oaFqd9-8wSRa85J8olpNmQB54qpkJVw4G7aU0_F2f8inRYHpTnIYS24E9kNgzItx6cyke-duReWsVBRDFW1biiIHTkHs2-IQi6HKpX_yzesyNK9BXxMVSnGQdfmNEF-KNXB_g7pZhIQfajRCwz3_M"/>
+<div class="absolute bottom-0 left-0 w-full glass-overlay p-unit-2">
+<p class="font-label-sm text-on-surface text-center">참새</p>
+<p class="font-scientific-name text-[10px] text-on-surface-variant italic text-center">Passer montanus</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid (Bento Style Add-on for Quality) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-unit-4 mb-unit-8">
+<div class="bg-surface-container-low p-unit-6 rounded-xl flex items-center gap-unit-4">
+<div class="bg-secondary-container w-12 h-12 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h3 class="font-label-sm text-on-surface-variant">이번 주 탐조 시간</h3>
+<p class="font-headline-lg-mobile text-primary">12.5 시간</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-unit-6 rounded-xl flex items-center gap-unit-4">
+<div class="bg-primary-fixed w-12 h-12 rounded-full flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined">emoji_events</span>
+</div>
+<div>
+<h3 class="font-label-sm text-on-surface-variant">컬렉션 달성도</h3>
+<p class="font-headline-lg-mobile text-primary">68%</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface-container dark:bg-surface-container-highest z-50 rounded-t-xl shadow-[0_-4px_20px_0_rgba(0,0,0,0.04)] flex justify-around items-center px-unit-2 pb-unit-4 pt-unit-2">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-unit-4 py-unit-1 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-unit-4 py-unit-1 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">My Guide</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-unit-4 py-unit-1 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm">Journal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-unit-4 py-unit-1 hover:text-primary transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction: Scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(section);
+        });
+
+        // Toggle Active State logic for Nav
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                navItems.forEach(nav => {
+                    nav.classList.remove('bg-primary-container', 'text-on-primary-container', 'rounded-full');
+                    nav.classList.add('text-on-surface-variant');
+                    const icon = nav.querySelector('.material-symbols-outlined');
+                    if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+                });
+                item.classList.add('bg-primary-container', 'text-on-primary-container', 'rounded-full');
+                item.classList.remove('text-on-surface-variant');
+                const activeIcon = item.querySelector('.material-symbols-outlined');
+                if(activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+            });
+        });
+    </script>
+</body></html>

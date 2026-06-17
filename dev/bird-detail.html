@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Source+Serif+4:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .observation-bar {
+            transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f6f3ee",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcdad5",
+                        "secondary-fixed": "#fdddb9",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0eb",
+                        "primary-container": "#2d5f3f",
+                        "primary-fixed": "#b8efc6",
+                        "inverse-surface": "#31302d",
+                        "tertiary-container": "#a02910",
+                        "on-primary-fixed": "#00210e",
+                        "on-tertiary-fixed": "#3d0600",
+                        "on-secondary-container": "#786044",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface": "#fcf9f4",
+                        "tertiary-fixed": "#ffdad3",
+                        "secondary-fixed-dim": "#e0c29f",
+                        "secondary": "#715a3e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fcf9f4",
+                        "on-secondary-fixed": "#281803",
+                        "surface-tint": "#366848",
+                        "surface-variant": "#e5e2dd",
+                        "tertiary-fixed-dim": "#ffb4a4",
+                        "on-tertiary-fixed-variant": "#8b1a02",
+                        "outline-variant": "#c0c9bf",
+                        "secondary-container": "#fdddb9",
+                        "on-secondary-fixed-variant": "#584329",
+                        "primary-fixed-dim": "#9dd3ab",
+                        "background": "#fcf9f4",
+                        "tertiary": "#7c1400",
+                        "on-tertiary-container": "#ffbaaa",
+                        "inverse-primary": "#9dd3ab",
+                        "surface-container-high": "#ebe8e3",
+                        "primary": "#134729",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2dd",
+                        "surface-container": "#f0ede9",
+                        "on-primary-container": "#a1d7ae",
+                        "outline": "#717971",
+                        "on-primary-fixed-variant": "#1d5031",
+                        "on-background": "#1c1c19",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "on-surface-variant": "#414942"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit-2": "0.5rem",
+                        "unit-4": "1rem",
+                        "unit-6": "1.5rem",
+                        "unit-12": "3rem",
+                        "base": "4px",
+                        "unit-8": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "gutter": "1rem",
+                        "unit-1": "0.25rem"
+                    },
+                    "fontFamily": {
+                        "scientific-name": ["\"Source Serif 4\""],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "scientific-name": ["18px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- Header / Hero Section -->
+<header class="relative h-[397px] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A majestic Grey Heron standing perfectly still in shallow, crystal clear river water during the golden hour. The soft evening sunlight creates a warm, shimmering glow on its sleek feathers and the surrounding ripples. The background is a soft-focus lush green riverbank, maintaining a premium natural history museum aesthetic with clean, bright, yet warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuNkdcQ4CXWf1p7nMqmx0SoV9cIDOeXaRIyoS1eTv4KKa3H84vtg0_rJ6ERufiDOTmEd9MQ0vwHF_m3HLYi9uc7Vm5Z_ex5synNZcPrBvCIpzyIK_HlVMh-Y0HyC_amecdP6nZEg3KX_1QsU2GVBfwanbFUp-BEEZ7lPAyEiMhcKEq5017FsKZptav6SyitQhYS56uvZsAMCL1z_GR16gUxPsZ42XX8JA1RcLgNZmeBjlaV4F1jbXwX9BZ3haOAA_FDE8751sjck_E"/>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+<!-- Top Controls -->
+<div class="absolute top-0 left-0 w-full flex justify-between items-center p-margin-mobile">
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white active:scale-90 transition-transform" onclick="history.back()">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white active:scale-90 transition-transform">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white active:scale-90 transition-transform">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+<!-- Bird Name Title -->
+<div class="absolute bottom-margin-mobile left-margin-mobile">
+<h1 class="font-display-lg text-display-lg text-white mb-1">왜가리</h1>
+<div class="flex gap-2">
+<span class="bg-primary-container text-on-primary-container px-unit-2 py-unit-1 rounded-full text-label-sm font-label-sm">텃새</span>
+<span class="bg-primary-container text-on-primary-container px-unit-2 py-unit-1 rounded-full text-label-sm font-label-sm">강가 거주</span>
+</div>
+</div>
+</header>
+<!-- Main Content Card -->
+<main class="relative -mt-6 bg-surface rounded-t-3xl pb-32 shadow-2xl">
+<div class="max-w-[1200px] mx-auto p-margin-mobile">
+<!-- Scientific Identity -->
+<div class="mb-unit-8 border-b border-outline-variant/30 pb-unit-6">
+<p class="font-scientific-name text-scientific-name italic text-on-surface-variant opacity-80">Ardea cinerea</p>
+<p class="mt-2 text-on-surface-variant leading-relaxed">
+                    한국에서 가장 흔히 볼 수 있는 대형 백로류입니다. 고고하게 서 있는 모습이 관찰의 묘미를 더해줍니다.
+                </p>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-2 gap-4 mb-unit-8">
+<!-- Size -->
+<div class="bg-surface-container-low p-unit-4 rounded-xl flex flex-col justify-between border border-white/50">
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">straighten</span> 크기
+                    </span>
+<span class="text-headline-lg font-headline-lg mt-2">58<span class="text-scientific-name">cm</span></span>
+</div>
+<!-- Habitat -->
+<div class="bg-surface-container-low p-unit-4 rounded-xl flex flex-col justify-between border border-white/50">
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">landscape</span> 서식지
+                    </span>
+<span class="text-body-md font-bold mt-2">강가, 호수, 논</span>
+</div>
+</div>
+<!-- Observation Chart -->
+<section class="mb-unit-12">
+<div class="flex justify-between items-end mb-unit-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">관찰 시기</h3>
+<span class="text-label-sm text-outline-variant">12개월 분포</span>
+</div>
+<div class="bg-white p-unit-6 rounded-2xl shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] border border-surface-variant">
+<div class="flex items-end justify-between h-24 gap-1">
+<!-- Jan-Dec Bars -->
+<div class="flex-1 bg-surface-container-high rounded-full observation-bar" style="height: 60%"></div>
+<div class="flex-1 bg-surface-container-high rounded-full observation-bar" style="height: 40%"></div>
+<div class="flex-1 bg-primary-fixed-dim rounded-full observation-bar" style="height: 70%"></div>
+<div class="flex-1 bg-primary rounded-full observation-bar" style="height: 90%"></div>
+<div class="flex-1 bg-primary rounded-full observation-bar" style="height: 95%"></div>
+<div class="flex-1 bg-primary rounded-full observation-bar" style="height: 85%"></div>
+<div class="flex-1 bg-primary rounded-full observation-bar" style="height: 80%"></div>
+<div class="flex-1 bg-primary-fixed-dim rounded-full observation-bar" style="height: 75%"></div>
+<div class="flex-1 bg-surface-container-high rounded-full observation-bar" style="height: 50%"></div>
+<div class="flex-1 bg-surface-container-high rounded-full observation-bar" style="height: 40%"></div>
+<div class="flex-1 bg-surface-container-high rounded-full observation-bar" style="height: 55%"></div>
+<div class="flex-1 bg-surface-container-high rounded-full observation-bar" style="height: 65%"></div>
+</div>
+<div class="flex justify-between mt-unit-2 text-[10px] text-outline font-bold">
+<span>JAN</span><span>JUN</span><span>DEC</span>
+</div>
+</div>
+</section>
+<!-- Audio Player Card -->
+<section class="mb-unit-12">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-unit-4">울음소리</h3>
+<div class="bg-secondary-container rounded-2xl p-unit-6 flex items-center gap-unit-6 relative overflow-hidden">
+<button class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-grow">
+<p class="text-label-sm font-label-sm text-on-secondary-fixed-variant mb-2">FIELD RECORDING — GYEONGGI-DO</p>
+<!-- Mock Waveform -->
+<div class="h-8 flex items-center gap-[2px]">
+<div class="w-1 h-3 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-5 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-8 bg-primary rounded-full"></div>
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-7 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-3 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-5 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-8 bg-primary rounded-full"></div>
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+<div class="w-1 h-2 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-5 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-7 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-4 bg-primary/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Characteristics Chips -->
+<section class="mb-unit-12">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-unit-4">특징</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-unit-4 py-unit-2 bg-surface-container border border-outline-variant/30 rounded-xl text-body-md text-on-surface-variant">긴 다리와 목</span>
+<span class="px-unit-4 py-unit-2 bg-surface-container border border-outline-variant/30 rounded-xl text-body-md text-on-surface-variant">회색 깃털</span>
+<span class="px-unit-4 py-unit-2 bg-surface-container border border-outline-variant/30 rounded-xl text-body-md text-on-surface-variant">검은색 눈썹선</span>
+<span class="px-unit-4 py-unit-2 bg-surface-container border border-outline-variant/30 rounded-xl text-body-md text-on-surface-variant">정적인 사냥 방식</span>
+</div>
+</section>
+<!-- User Record Section -->
+<section class="mb-unit-4">
+<div class="flex justify-between items-center mb-unit-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">내가 발견한 기록</h3>
+<button class="text-primary text-label-sm font-label-sm">전체보기</button>
+</div>
+<div class="flex gap-unit-4 overflow-x-auto hide-scrollbar pb-unit-4 -mx-margin-mobile px-margin-mobile">
+<!-- Record 1 -->
+<div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-sm border border-surface-variant overflow-hidden">
+<img class="w-full h-32 object-cover" data-alt="A close-up vertical photograph of a grey heron's head showing its sharp beak and distinctive black eyebrow plume. The lighting is soft and directional, as if taken on a foggy morning by a lake. The aesthetic is clean and professional, using a warm neutral palette that complements a premium nature documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz4NrpGmTqFaLxGn7hDROPgLHku0Mu8DPEOxLmruA7XumiAs8yaKRl8_9TqG8-Bua-nQSCAr2K6ZozZQkSQC9T178hR3HbhYwES8AuhFAluTOXxDdClfLEA5DJVTPOb9OWzzXsIfzio0lxC7lUJ36-h2uemn_iicAipR0MQXv774c9tAzdqrHhFrccI_cYKii3JRkXqKjolfBH45sMuA4SxEm0-Gs4VAagn4bxpokR1nXLFbnW58ZTH8z4ofJ2jmiCJiekPPTOwdI2"/>
+<div class="p-unit-4">
+<p class="font-bold text-body-md">양재천 산책길</p>
+<p class="text-label-sm text-outline-variant">2024년 3월 12일</p>
+</div>
+</div>
+<!-- Record 2 -->
+<div class="flex-shrink-0 w-64 bg-white rounded-2xl shadow-sm border border-surface-variant overflow-hidden">
+<img class="w-full h-32 object-cover" data-alt="A wide-angle professional shot of a grey heron taking flight over a misty lake at dawn. The water surface reflects the soft orange and purple hues of the sunrise. The bird's wings are fully extended, captured in sharp detail against a soft-focus forest background. The overall mood is peaceful and evocative of a high-end field journal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmi-_7sFORBDrrnmosHMZN-7Px-cZ_a6fAL2dknuVvCyBivcfLyBuPZDnHYXsS5VZfiaGSmmt7pyuTGG6DcUK7l6CtlsXCjvm1tW2b7iAv5awtHuvStR_az4wvDtMnnTstWD5DE7eHHelEMtwpRSP_6les6dnx7sWJ1mvfuVT_mqwPoHps8MbKZ0dxQtutiy1j9T1sE4DNMX9zV0PJPiqMbaGlFcqfaY9x8mjmWy_lp2QzkDlEjsUHJzb3J8LOUxmNJFrygI0rZcAn"/>
+<div class="p-unit-4">
+<p class="font-bold text-body-md">탄천 하류 습지</p>
+<p class="text-label-sm text-outline-variant">2023년 11월 28일</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Fixed Bottom Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-surface-variant p-margin-mobile z-50">
+<div class="max-w-[1200px] mx-auto">
+<button class="w-full h-14 bg-surface-container-highest text-outline flex items-center justify-center gap-2 rounded-xl font-headline-lg-mobile transition-all" disabled="">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">check_circle</span>
+                도감에 등록됨
+            </button>
+</div>
+</footer>
+<script>
+        // Simple Interaction: Change scroll behavior for header appearance
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollY = window.scrollY;
+            const opacity = Math.max(0, 1 - scrollY / 300);
+            header.style.opacity = opacity;
+        });
+
+        // Trigger animation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.observation-bar');
+            bars.forEach((bar, i) => {
+                const finalHeight = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = finalHeight;
+                }, i * 50);
+            });
+        });
+    </script>
+</body></html>

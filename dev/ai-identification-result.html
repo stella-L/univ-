@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Source+Serif+4:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f6f3ee",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dcdad5",
+                      "secondary-fixed": "#fdddb9",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f3f0eb",
+                      "primary-container": "#2d5f3f",
+                      "primary-fixed": "#b8efc6",
+                      "inverse-surface": "#31302d",
+                      "tertiary-container": "#a02910",
+                      "on-primary-fixed": "#00210e",
+                      "on-tertiary-fixed": "#3d0600",
+                      "on-secondary-container": "#786044",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "surface": "#fcf9f4",
+                      "tertiary-fixed": "#ffdad3",
+                      "secondary-fixed-dim": "#e0c29f",
+                      "secondary": "#715a3e",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fcf9f4",
+                      "on-secondary-fixed": "#281803",
+                      "surface-tint": "#366848",
+                      "surface-variant": "#e5e2dd",
+                      "tertiary-fixed-dim": "#ffb4a4",
+                      "on-tertiary-fixed-variant": "#8b1a02",
+                      "outline-variant": "#c0c9bf",
+                      "secondary-container": "#fdddb9",
+                      "on-secondary-fixed-variant": "#584329",
+                      "primary-fixed-dim": "#9dd3ab",
+                      "background": "#fcf9f4",
+                      "tertiary": "#7c1400",
+                      "on-tertiary-container": "#ffbaaa",
+                      "inverse-primary": "#9dd3ab",
+                      "surface-container-high": "#ebe8e3",
+                      "primary": "#134729",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e5e2dd",
+                      "surface-container": "#f0ede9",
+                      "on-primary-container": "#a1d7ae",
+                      "outline": "#717971",
+                      "on-primary-fixed-variant": "#1d5031",
+                      "on-background": "#1c1c19",
+                      "on-error": "#ffffff",
+                      "on-surface": "#1c1c19",
+                      "on-surface-variant": "#414942"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-2": "0.5rem",
+                      "unit-4": "1rem",
+                      "unit-6": "1.5rem",
+                      "unit-12": "3rem",
+                      "base": "4px",
+                      "unit-8": "2rem",
+                      "margin-desktop": "2.5rem",
+                      "margin-mobile": "1rem",
+                      "gutter": "1rem",
+                      "unit-1": "0.25rem"
+              },
+              "fontFamily": {
+                      "scientific-name": ["Source Serif 4"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "scientific-name": ["18px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #FAF7F2; /* Custom Warm Minimalist Canvas */
+            -webkit-font-smoothing: antialiased;
+        }
+        .field-card-shadow {
+            shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-lock {
+            font-size: 14px;
+            vertical-align: middle;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky z-50 flex justify-between items-center px-margin-mobile py-unit-4">
+<div class="flex items-center gap-unit-2 hover:opacity-80 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed">Chirp</h1>
+<div class="flex items-center gap-unit-2 hover:opacity-80 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline">settings</span>
+</div>
+</header>
+<main class="flex-grow px-margin-mobile pt-unit-4 pb-unit-12 max-w-md mx-auto w-full">
+<!-- Result Identification Section -->
+<div class="relative group">
+<div class="aspect-[4/3] rounded-xl overflow-hidden shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] mb-unit-6">
+<img alt="흰뺨검둥오리" class="w-full h-full object-cover" data-alt="A detailed, high-resolution wildlife photograph of a Eastern Spot-billed Duck floating peacefully on a calm river. The lighting is soft morning sun, highlighting the intricate feather patterns and the iconic yellow-tipped beak. The background is a soft-focus natural riverbank with reeds. The overall aesthetic is clean, professional, and observant, resembling a premium digital field guide page." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHbJgn25HUWscEOiL-MLJIdtpAQNrHzdnvGF_Y1MZoD0nADwXjeO4DUHkb5g6SwiJ27iXtusHF0Bhr0okZkasXdDaT7TSK-dhG6wcbyogI2theqLaWMUpHfwNN-OtGuGLx2OWdG2n0kROJvQlOSIH9OR4WcWS6z3c7KKYFxYrIimyyfmd-qioVtSEsJQnZsDvwlsDCCIWuksoMveFMlpLLmURRwSr2JD-9nKgLFxH67kDdqzftKiWZKB9TUPQTC_EwSM2lDc4fycrc"/>
+</div>
+<!-- Confidence Badge -->
+<div class="absolute top-unit-4 left-unit-4 bg-primary px-unit-4 py-unit-1 rounded-full flex items-center gap-unit-1 shadow-sm">
+<span class="text-white font-label-sm text-label-sm">신뢰도 94%</span>
+</div>
+</div>
+<!-- Bird Information Card -->
+<div class="bg-surface-container-lowest rounded-xl p-unit-6 shadow-[0_4px_20px_0_rgba(0,0,0,0.04)] mb-unit-6">
+<div class="mb-unit-4">
+<h2 class="font-headline-lg-mobile text-[22px] leading-tight text-on-surface mb-unit-1">흰뺨검둥오리</h2>
+<p class="font-scientific-name text-scientific-name italic text-outline opacity-80">Anas zonorhyncha</p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-unit-2 mb-unit-6">
+<span class="bg-surface-container text-on-surface-variant px-unit-3 py-unit-1 rounded-full text-[13px] font-semibold">텃새</span>
+<span class="bg-surface-container text-on-surface-variant px-unit-3 py-unit-1 rounded-full text-[13px] font-semibold">수조류</span>
+<span class="bg-surface-container text-on-surface-variant px-unit-3 py-unit-1 rounded-full text-[13px] font-semibold">한강 흔함</span>
+</div>
+<!-- Description -->
+<div class="border-t border-surface-variant pt-unit-6 mb-unit-6">
+<p class="text-on-surface-variant text-[15px] leading-relaxed line-clamp-2">
+                    주로 민물 습지, 하천, 논 등에서 서식하는 오리과 조류입니다. 부리 끝의 노란색 점이 특징이며, 한국에서는 사계절 내내 관찰되는 흔한 텃새입니다.
+                </p>
+</div>
+<!-- Song Playback (Premium Locked) -->
+<button class="w-full flex items-center justify-between bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-colors rounded-xl px-unit-4 py-unit-4 active:scale-95 duration-150">
+<div class="flex items-center gap-unit-3">
+<span class="material-symbols-outlined text-primary">volume_up</span>
+<span class="text-on-surface font-semibold text-[15px]">울음소리 듣기</span>
+</div>
+<span class="material-symbols-outlined premium-lock text-secondary">lock</span>
+</button>
+</div>
+<!-- Primary Action -->
+<div class="space-y-unit-4 px-unit-2">
+<button class="w-full bg-primary text-on-primary font-bold py-unit-4 rounded-xl shadow-md hover:opacity-90 active:scale-95 transition-all duration-200">
+                내 도감에 추가하기
+            </button>
+<a class="block text-center text-on-surface-variant text-[14px] hover:text-primary underline decoration-dotted underline-offset-4 transition-colors" href="#">
+                다른 종 같아요 (직접 선택)
+            </a>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-unit-2 pb-unit-4 pt-unit-2 bg-surface-container dark:bg-surface-container-highest shadow-[0_-4px_20px_0_rgba(0,0,0,0.04)] rounded-t-xl z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">My Guide</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm">Journal</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-unit-4 py-unit-1 hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Map</span>
+</div>
+</nav>
+<!-- Micro-interaction script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    let x = e.clientX - e.target.offsetLeft;
+                    let y = e.clientY - e.target.offsetTop;
+                    let ripples = document.createElement('span');
+                    ripples.style.left = x + 'px';
+                    ripples.style.top = y + 'px';
+                    this.appendChild(ripples);
+                    setTimeout(() => ripples.remove(), 1000);
+                });
+            });
+        });
+    </script>
+</body></html>
